@@ -1,0 +1,6 @@
+{
+    "title":"my test title",
+    "wikipediaUrl":"https://wikipedia.com",
+    "funFacts":["one fun fact", "two fun fact"],
+    "barcodeId": "123"
+}

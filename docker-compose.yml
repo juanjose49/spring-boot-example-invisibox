@@ -1,0 +1,25 @@
+version: '2'
+services:
+
+  ui:
+    image: nginx:alpine
+    ports:
+     - 80:80
+    volumes:
+     - ../Invisibox/www:/usr/share/nginx/html
+
+  invisibox-service:
+    image: invisibox-service
+    command: mvn spring-boot:run -Drun.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
+    ports:
+     - 7000:7000
+     - 5005:5005
+    volumes:
+     - ../m2:/root/.m2/repository
+     -  .:/usr/src/app
+
+
+  invisibox-mongo:
+    image: mongo
+    volumes:
+     - ../mongo/:/data/db
