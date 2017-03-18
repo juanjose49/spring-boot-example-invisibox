@@ -11,6 +11,7 @@ public class Invisibox {
 	private String wikipediaUrl;
 	private List<String> funFacts;
 	private String barcodeId;
+	private List<String> imageUuids;
 	
 	public String getTitle() {
 		return title;
@@ -35,6 +36,12 @@ public class Invisibox {
 	}
 	public void setBarcodeId(String barcodeId) {
 		this.barcodeId = barcodeId;
+	}
+	public List<String> getImageUuids() {
+		return imageUuids;
+	}
+	public void setImageUuids(List<String> imageUuids) {
+		this.imageUuids = imageUuids;
 	}
 	
 }
