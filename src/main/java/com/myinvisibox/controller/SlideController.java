@@ -13,29 +13,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.myinvisibox.domain.Image;
-import com.myinvisibox.domain.ImageRepository;
+import com.myinvisibox.domain.Slide;
+import com.myinvisibox.domain.SlideRepository;
 
 @RestController()
-@RequestMapping("/image")
+@RequestMapping("/slide")
 @CrossOrigin(origins = "*")
-public class ImageController {
+public class SlideController {
 	@Autowired
-	private ImageRepository imageRepository;
+	private SlideRepository slideRepository;
 
 
 	@RequestMapping(value = "/{uuid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Image> getImage(@PathVariable String uuid) {
-		Image img = imageRepository.findByUuid(uuid);
+	public ResponseEntity<Slide> getSlide(@PathVariable String uuid) {
+		Slide img = slideRepository.findByUuid(uuid);
 		if(img == null){
-			return new ResponseEntity<Image>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Slide>(HttpStatus.NOT_FOUND);
 		}
-		return new ResponseEntity<Image>(img, HttpStatus.OK);
+		return new ResponseEntity<Slide>(img, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<String> addImage(@RequestBody Image image) {
-		imageRepository.save(image);
+	public ResponseEntity<String> addSlide(@RequestBody Slide slide) {
+		slideRepository.save(slide);
 		return new ResponseEntity<String>(HttpStatus.CREATED);
 	}
 
