@@ -7,5 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface InvisiboxRepository extends MongoRepository<Invisibox, String> {
 	public Invisibox findByBarcodeId(String barcodeId);
 	public List<Invisibox> findByUserId(String userId);
+	public Long deleteByBarcodeId(String barcodeId);
 
 }

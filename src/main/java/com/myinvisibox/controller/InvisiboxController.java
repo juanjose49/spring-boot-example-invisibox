@@ -45,6 +45,16 @@ public class InvisiboxController {
 		}
 		return new ResponseEntity<Invisibox>(invisibox, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/{barcodeId}", method = RequestMethod.DELETE)
+	public ResponseEntity<Invisibox> deleteInvisibox(@PathVariable String barcodeId) {
+		Invisibox invisibox = invisiboxRepository.findByBarcodeId(barcodeId);
+		if(invisibox == null){
+			return new ResponseEntity<Invisibox>(HttpStatus.NOT_FOUND);
+		}
+		invisiboxRepository.deleteByBarcodeId(barcodeId);
+		return new ResponseEntity<Invisibox>(invisibox, HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<QrCode> addInvisibox(@RequestBody Invisibox invisibox) {
