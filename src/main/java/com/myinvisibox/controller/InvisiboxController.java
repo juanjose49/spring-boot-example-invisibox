@@ -78,7 +78,7 @@ public class InvisiboxController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new QrCode("data:image/jpeg;base64,"+ Base64.encodeBase64String(baos.toByteArray()));
+		return new QrCode("data:image/jpeg;base64,"+ Base64.encodeBase64String(baos.toByteArray()), qrCodeData);
 	}
 
 }

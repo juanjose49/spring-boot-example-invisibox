@@ -1,7 +1,7 @@
 package com.myinvisibox.controller;
 
 import java.util.List;
-
+import static java.util.Comparator.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +27,7 @@ public class UserController {
 		if(invisiboxes == null || invisiboxes.isEmpty()){
 			return new ResponseEntity<List<Invisibox>>(HttpStatus.NOT_FOUND);
 		}
+		invisiboxes.sort(comparing(Invisibox::getTitle));
 		return new ResponseEntity<List<Invisibox>>(invisiboxes, HttpStatus.OK);
 	}
 
