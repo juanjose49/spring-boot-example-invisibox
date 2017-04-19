@@ -6,7 +6,7 @@ services:
     ports:
      - 80:80
     volumes:
-     - ../Invisibox/platforms/browser:/usr/share/nginx/html
+     - ../Invisibox/platforms/browser/www:/usr/share/nginx/html
     restart: always
 
   invisibox-service:
