@@ -2,11 +2,9 @@ version: '2'
 services:
 
   ui:
-    image: nginx:alpine
+    image: invisibox-ui
     ports:
      - 80:80
-    volumes:
-     - ../Invisibox/platforms/browser/www:/usr/share/nginx/html
     restart: always
 
   invisibox-service:
